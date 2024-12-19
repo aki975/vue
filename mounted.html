@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js のサンプル</title>
+    <script src="https://unpkg.com/vue@3.5.0/dist/vue.global.js"></script>
+  </head>
+
+  <body>
+    <h1>Vue3</h1>
+    <div id="app">
+      <p>{{ message }}</p>
+			<p>{{ message1 }}</p>
+    </div>
+    
+    <script>
+    const appdata = {
+      data() {
+        return {
+          message: 'Hello Vue!',
+					message1: 'ここに書き換え',
+          count: 0
+        }
+      },
+      mounted() {
+        setInterval(() => {
+          this.count++
+          this.message1 = 'Count: ' + this.count
+        }, 1000)
+      }
+    }
+  
+    Vue.createApp(appdata).mount('#app')
+    </script>
+  </body>
+</html>
